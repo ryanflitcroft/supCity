@@ -49,7 +49,7 @@ export async function updateNature(nature) {
     const response = await client
         .from('city')
         .update({ nature: nature })
-        .match({ user_id: user.id })
+        .match({ user_id: user.user.id })
         .single();
 
     return checkError(response);
@@ -60,7 +60,7 @@ export async function updateArchitecture(architecture) {
     const response = await client
         .from('city')
         .update({ architecture: architecture })
-        .match({ user_id: user.id })
+        .match({ user_id: user.user.id })
         .single();
 
     return checkError(response);
@@ -71,7 +71,7 @@ export async function updateArt(art) {
     const response = await client
         .from('city')
         .update({ art: art })
-        .match({ user_id: user.id })
+        .match({ user_id: user.user.id })
         .single();
 
     return checkError(response);

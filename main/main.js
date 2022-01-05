@@ -43,7 +43,8 @@ logoutButton.addEventListener('click', () => {
 natureSelect.addEventListener('change', async() => {
     // update value of city.nature in Supabase to option value
     await updateNature(natureSelect.value);
-
+    const city = await getCity();
+    console.log(city);
     // fetch current value of city.nature
     // render and append img element to natureFigure
     // assign img src attribute to corresponding image
@@ -52,7 +53,8 @@ natureSelect.addEventListener('change', async() => {
 architectureSelect.addEventListener('change', async() => {
     // update value of city.architecture in Supabase to option value
     await updateArchitecture(architectureSelect.value);
-
+    const city = await getCity();
+    console.log(city);
     // fetch current value of city.architecture
     // render and append img element to architectureFigure
     // assign img src attribute to corresponding image
@@ -61,7 +63,8 @@ architectureSelect.addEventListener('change', async() => {
 artSelect.addEventListener('change', async() => {
     // update value of city.art in Supabase to option value
     await updateArt(artSelect.value);
-
+    const city = await getCity();
+    console.log(city);
     // fetch current value of city.art
     // render and append img element to artFigure
     // assign img src attribute to corresponding image
