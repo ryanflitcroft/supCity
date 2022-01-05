@@ -41,3 +41,64 @@ export async function logout() {
 function checkError({ data, error }) {
     return error ? console.error(error) : data;
 }
+
+//
+
+export async function updateNature(nature) {
+    const user = await getUser();
+    const response = await client
+        .from('city')
+        .update({ nature: nature })
+        .match({ user_id: user.id })
+        .single();
+
+    return checkError(response);
+}
+
+export async function updateArchitecture(architecture) {
+    const user = await getUser();
+    const response = await client
+        .from('city')
+        .update({ architecture: architecture })
+        .match({ user_id: user.id })
+        .single();
+
+    return checkError(response);
+}
+
+export async function updateArt(art) {
+    const user = await getUser();
+    const response = await client
+        .from('city')
+        .update({ art: art })
+        .match({ user_id: user.id })
+        .single();
+
+    return checkError(response);
+}
+
+export async function getCity() {
+    const response = await client
+        .from('city')
+        .select()
+        .single();
+
+    return checkError(response);
+}
+
+export async function defaultCity() {
+    const response = await client
+        .from('city')
+        .insert([
+            {
+                name: 'Supa City',
+                nature: 1,
+                architecture: 2,
+                art: 3,
+                slogans: [
+                    'The City That Works'
+                ]
+            }
+        ]);
+    return checkError(response);
+}
