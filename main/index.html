@@ -2,90 +2,80 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../styles/reset.css">
-    <link rel="stylesheet" href="../styles/style.css">
-    <link rel="stylesheet" href="../styles/home.css">
-    <title>Main</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles/reset.css">
+  <link rel="stylesheet" href="../styles/style.css">
+  <link rel="stylesheet" href="../styles/home.css">
+  <title>Main</title>
 </head>
 
 <body>
-    <header>
-        <button id="logout">SignOut</button>
-        <h1 id="city-name"><!-- City name --></h1>
-    </header>    
-    <main>
-        <section>
+  <header>
+    <button id="logout">SignOut</button>
+    <h1 id="city-name">
+      <!-- City name -->
+    </h1>
+  </header>
+  <main>
+    <section>
 
-            <figure id="nature-figure">
-            
-              <img src="../assets/nature-1.jpg" alt="">
+      <figure>
+        <img src="" alt="photograph of nature in Portland" id="nature-image">
+        <label for="nature-select">Nature</label>
+        <select name="nature" id="nature-select">
+          <option value="1">Cascades</option>
+          <option value="2">Bracken Fern</option>
+          <option value="3">Magnolia</option>
+        </select>
+      </figure>
+      <figure>
+        <img src="" alt="photograph of architecture in Portland" id="architecture-image">
+        <label for="architecture-select">Architecture</label>
+        <select name="architecture" id="architecture-select">
+          <option value="1">SW Alder St</option>
+          <option value="2">Hollywood Theatre</option>
+          <option value="3">Reed College</option>
+        </select>
+      </figure>
+      <figure>
+        <img src="" alt="photograph of art in Portland" id="art-image">
+        <label for="art-select">Art</label>
+        <select name="art" id="art-select">
+          <option value="1">Olivia Knapp</option>
+          <option value="2">Rone, Wright, Lovegates</option>
+          <option value="3">Forest Wolf Kell</option>
+        </select>
+      </figure>
 
-              <figcaption>Nature</figcaption>
-            </figure>
-              <figure id="architecture-figure">
+    </section>
 
-              <img src="../assets/architecture-2.jpg" alt="">
+    <section>
+      <form id="name-form">
+        <label for="name">Name</label>
+        <input type="text" name="name" placeholder="city name" required>
+        <button type="submit" form="name-form">Name</button>
+      </form>
+      <form id="slogan-form">
+        <label for="slogan">Slogan</label>
+        <input type="text" name="slogan" placeholder="city slogan" required>
+        <button type="submit" form="slogan-form">Slogan</button>
+      </form>
+    </section>
 
-              <figcaption>Architecture</figcaption>
-            </figure>
-              <figure id="art-figure">
-            
-              <img src="../assets/art-3.jpg" alt="">
-
-              <figcaption>Art</figcaption>
-            </figure>
-          
-        </section>
-
-        <section>
-            <label for="nature-select">Nature</label>
-            <select name="nature" id="nature-select">
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-            </select>
-            <label for="architecture-select">Architecture</label>
-            <select name="architecture" id="architecture-select">
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-            </select>
-            <label for="art-select">Art</label>
-            <select name="art" id="art-select">
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-            </select>
-        </section>
-
-        <section>
-            <form id="name-form">
-              <label for="name">Name</label>
-              <input type="text" name="name" placeholder="city name" required>
-              <button type="submit" form="name-form">Name</button>
-            </form>
-            <form id="slogan-form">
-              <label for="slogan">Slogan</label>
-              <input type="text" name="slogan" placeholder="city slogan" required>
-              <button type="submit" form="slogan-form">Slogan</button>
-            </form>
-        </section>
-
-        <section id="slogan-section">
-            <!-- 
+    <section id="slogan-section">
+      <!-- 
               <span>City Slogan</span>
             -->
-        </section>
-    </main>
-    <footer>
-       
-    </footer>
-    <script type="module" src="./main.js"></script>
+    </section>
+  </main>
+  <footer>
+
+  </footer>
+  <script type="module" src="./main.js"></script>
 </body>
 
 </html>

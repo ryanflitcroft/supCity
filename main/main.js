@@ -1,9 +1,9 @@
-import { checkAuth, logout, updateNature, updateArchitecture, updateArt, defaultCity, getCity } from '../fetch-utils.js';
+import { checkAuth, logout, updateNature, updateArchitecture, updateArt, defaultCity, getCity, updateSlogans } from '../fetch-utils.js';
 
 const cityName = document.querySelector('#city-name');
-const natureFigure = document.querySelector('#nature-figure');
-const architectureFigure = document.querySelector('#architecture-figure');
-const artFigure = document.querySelector('#art-figure');
+const natureImage = document.querySelector('#nature-image');
+const architectureImage = document.querySelector('#architecture-image');
+const artImage = document.querySelector('#art-image');
 const natureSelect = document.querySelector('#nature-select');
 const architectureSelect = document.querySelector('#architecture-select');
 const artSelect = document.querySelector('#art-select');
@@ -33,7 +33,10 @@ window.addEventListener('load', async() => {
     if (!city) {
         await defaultCity();
     }
-    console.log(city);
+    displayCity(city);
+    natureSelect.value = city.nature;
+    architectureSelect.value = city.architecture;
+    artSelect.value = city.art;
 });
 
 logoutButton.addEventListener('click', () => {
@@ -43,9 +46,9 @@ logoutButton.addEventListener('click', () => {
 natureSelect.addEventListener('change', async() => {
     // update value of city.nature in Supabase to option value
     await updateNature(natureSelect.value);
-    const city = await getCity();
-    console.log(city);
     // fetch current value of city.nature
+    const city = await getCity();
+    displayCity(city);
     // render and append img element to natureFigure
     // assign img src attribute to corresponding image
 });
@@ -53,9 +56,9 @@ natureSelect.addEventListener('change', async() => {
 architectureSelect.addEventListener('change', async() => {
     // update value of city.architecture in Supabase to option value
     await updateArchitecture(architectureSelect.value);
-    const city = await getCity();
-    console.log(city);
     // fetch current value of city.architecture
+    const city = await getCity();
+    displayCity(city);
     // render and append img element to architectureFigure
     // assign img src attribute to corresponding image
 });
@@ -63,21 +66,48 @@ architectureSelect.addEventListener('change', async() => {
 artSelect.addEventListener('change', async() => {
     // update value of city.art in Supabase to option value
     await updateArt(artSelect.value);
-    const city = await getCity();
-    console.log(city);
     // fetch current value of city.art
+    const city = await getCity();
+    displayCity(city);
     // render and append img element to artFigure
     // assign img src attribute to corresponding image
 });
 
-nameForm.addEventListener('submit', async() => {
+nameForm.addEventListener('submit', async(e) => {
+    e.preventDefault();
     // update value of city.name in Supabase to input value
+    const city = await getCity();
+    console.log(city);
     // fetch current value of city.name
     // change textContent of cityName to value of city.name
 });
 
-sloganForm.addEventListener('submit', async() => {
+sloganForm.addEventListener('submit', async(e) => {
+    e.preventDefault();
+
+    const data = new FormData(sloganForm);
+    const slogan = data.get('slogan');
+    // console.log(slogan);
     // fetch current value of city.slogans
+    const city = await getCity();
+    const citySlogans = city.slogans;
+    citySlogans.push(slogan);
+    // console.log(citySlogans);
+    updateSlogans(citySlogans);
+    displayCity();
     // push input value to city.slogans locally
     // insert current value of city.slogans (local) to city.slogans in Supabase
 });
+
+function displayCity(city) {
+    cityName.textContent = city.name;
+    natureImage.src = `../assets/nature-${city.nature}.jpg`;
+    architectureImage.src = `../assets/architecture-${city.architecture}.jpg`;
+    artImage.src = `../assets/art-${city.art}.jpg`;
+
+    for (let slogan of city.slogans) {
+        const sloganEl = document.createElement('span');
+        sloganEl.textContent = slogan;
+        sloganSection.append(sloganEl);
+    }
+}

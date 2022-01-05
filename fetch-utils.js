@@ -77,6 +77,17 @@ export async function updateArt(art) {
     return checkError(response);
 }
 
+export async function updateSlogans(slogans) {
+    const user = await getUser();
+    const response = await client
+        .from('city')
+        .update({ slogans: slogans })
+        .match({ user_id: user.user.id })
+        .single();
+
+    return checkError(response);
+}
+
 export async function getCity() {
     const response = await client
         .from('city')
