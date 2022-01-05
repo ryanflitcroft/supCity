@@ -10,7 +10,6 @@ signInForm.addEventListener('submit', async(e) => {
 
     const email = data.get('inEmail');
     const password = data.get('inPassword');
-    // console.log(email, password);
 
     const user = await signInUser(email, password);
 
@@ -30,7 +29,6 @@ signUpForm.addEventListener('submit', async(e) => {
 
     const email = data.get('upEmail');
     const password = data.get('upPassword');
-    // console.log(email, password);
 
     const user = await signUpUser(email, password);
 

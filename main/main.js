@@ -44,33 +44,21 @@ logoutButton.addEventListener('click', () => {
 });
 
 natureSelect.addEventListener('change', async() => {
-    // update value of city.nature in Supabase to option value
     await updateNature(natureSelect.value);
-    // fetch current value of city.nature
     const city = await getCity();
     displayCity(city);
-    // render and append img element to natureFigure
-    // assign img src attribute to corresponding image
 });
 
 architectureSelect.addEventListener('change', async() => {
-    // update value of city.architecture in Supabase to option value
     await updateArchitecture(architectureSelect.value);
-    // fetch current value of city.architecture
     const city = await getCity();
     displayCity(city);
-    // render and append img element to architectureFigure
-    // assign img src attribute to corresponding image
 });
 
 artSelect.addEventListener('change', async() => {
-    // update value of city.art in Supabase to option value
     await updateArt(artSelect.value);
-    // fetch current value of city.art
     const city = await getCity();
     displayCity(city);
-    // render and append img element to artFigure
-    // assign img src attribute to corresponding image
 });
 
 nameForm.addEventListener('submit', async(e) => {
@@ -78,14 +66,12 @@ nameForm.addEventListener('submit', async(e) => {
 
     const data = new FormData(nameForm);
     const cityName = data.get('name');
-    // update value of city.name in Supabase to input value
-    // console.log(cityName);
+
     await updateName(cityName);
     const city = await getCity();
-    console.log(city);
+
+    nameForm.reset();
     displayCity(city);
-    // fetch current value of city.name
-    // change textContent of cityName to value of city.name
 });
 
 sloganForm.addEventListener('submit', async(e) => {
@@ -98,6 +84,7 @@ sloganForm.addEventListener('submit', async(e) => {
     const citySlogans = city.slogans;
     citySlogans.push(slogan);
 
+    sloganForm.reset();
     updateSlogans(citySlogans);
     displayCity(city);
 });

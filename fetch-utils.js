@@ -117,7 +117,7 @@ export async function defaultCity() {
                 architecture: 2,
                 art: 3,
                 slogans: [
-                    'The City That Works'
+                    'Keep it Weird'
                 ]
             }
         ]);
