@@ -88,6 +88,16 @@ export async function updateSlogans(slogans) {
     return checkError(response);
 }
 
+export async function updateName(name) {
+    const user = await getUser();
+    const response = await client
+        .from('city')
+        .update({ name: name })
+        .match({ user_id: user.user.id })
+        .single();
+    return checkError(response);
+}
+
 export async function getCity() {
     const response = await client
         .from('city')
@@ -102,7 +112,7 @@ export async function defaultCity() {
         .from('city')
         .insert([
             {
-                name: 'Supa City',
+                name: 'Portland',
                 nature: 1,
                 architecture: 2,
                 art: 3,

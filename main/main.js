@@ -1,4 +1,4 @@
-import { checkAuth, logout, updateNature, updateArchitecture, updateArt, defaultCity, getCity, updateSlogans } from '../fetch-utils.js';
+import { checkAuth, logout, updateNature, updateArchitecture, updateArt, defaultCity, getCity, updateSlogans, updateName } from '../fetch-utils.js';
 
 const cityName = document.querySelector('#city-name');
 const natureImage = document.querySelector('#nature-image');
@@ -75,9 +75,15 @@ artSelect.addEventListener('change', async() => {
 
 nameForm.addEventListener('submit', async(e) => {
     e.preventDefault();
+
+    const data = new FormData(nameForm);
+    const cityName = data.get('name');
     // update value of city.name in Supabase to input value
+    // console.log(cityName);
+    await updateName(cityName);
     const city = await getCity();
     console.log(city);
+    displayCity(city);
     // fetch current value of city.name
     // change textContent of cityName to value of city.name
 });
@@ -87,16 +93,13 @@ sloganForm.addEventListener('submit', async(e) => {
 
     const data = new FormData(sloganForm);
     const slogan = data.get('slogan');
-    // console.log(slogan);
-    // fetch current value of city.slogans
+
     const city = await getCity();
     const citySlogans = city.slogans;
     citySlogans.push(slogan);
-    // console.log(citySlogans);
+
     updateSlogans(citySlogans);
-    displayCity();
-    // push input value to city.slogans locally
-    // insert current value of city.slogans (local) to city.slogans in Supabase
+    displayCity(city);
 });
 
 function displayCity(city) {
@@ -105,6 +108,7 @@ function displayCity(city) {
     architectureImage.src = `../assets/architecture-${city.architecture}.jpg`;
     artImage.src = `../assets/art-${city.art}.jpg`;
 
+    sloganSection.textContent = '';
     for (let slogan of city.slogans) {
         const sloganEl = document.createElement('span');
         sloganEl.textContent = slogan;

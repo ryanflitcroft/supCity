@@ -7,10 +7,13 @@ body {
     --color5: ;
 
     color: var(--color1);
+    font-family: bernhard-gothic-urw,sans-serif;
 }
 
 h1 {
     letter-spacing: 0.15em;
+    font-family: 'metalista-web', serif;
+    font-size: 3em;
 }
 
 header {
@@ -18,6 +21,13 @@ header {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+header button {
+    all: unset;
+    cursor: pointer;
+    align-self: flex-end;
+    margin: 0.5em;
 }
 
 main {
@@ -60,11 +70,22 @@ input {
     text-align: center;
     padding: 0.25em;
     cursor: pointer;
+    font-family: bernhard-gothic-urw,sans-serif;
 }
 
 button {
-    margin: 1em;
+    margin: 0.25em;
     cursor: pointer;
+    font-family: bernhard-gothic-urw,sans-serif;
+}
+
+select {
+    font-family: bernhard-gothic-urw,sans-serif;
+    text-align: center;
+}
+
+#slogan-section {
+    flex-direction: column;
 }
 
 @media only screen and (min-width: 950px) {
@@ -73,6 +94,10 @@ button {
         justify-content: center;
         align-items: flex-start;
     } */
+
+    h1 {
+        font-size: 5em;
+    }
 
     section {
         flex-direction: row;
