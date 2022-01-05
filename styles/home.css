@@ -33,6 +33,11 @@ section {
     flex-direction: column;
 }
 
+img {
+    width: 300px;
+    margin: 0.5em;
+}
+
 form {
     display: flex;
     flex-direction: column;
@@ -50,14 +55,15 @@ button {
     cursor: pointer;
 }
 
-@media only screen and (min-width: 500px) {
-    main {
+@media only screen and (min-width: 950px) {
+    /* main {
         flex-direction: row;
         justify-content: center;
         align-items: flex-start;
-    }
+    } */
 
     section {
-        margin: 5em 1em;
+        flex-direction: row;
+        margin: 1em;
     }
 }

@@ -53,7 +53,7 @@ git checkout -b workOnANewBranch
 ```
 
 ```html
-<section id="figure-section">
+<section>
 
   <figure id="nature-figure">
     <!--
@@ -78,7 +78,7 @@ git checkout -b workOnANewBranch
 ```
 
 ```html
-<section id="dropdown-section">
+<section>
   <select name="nature" id="nature-select">
     <option value="1">1</option>
     <option value="2">2</option>
@@ -124,11 +124,37 @@ git checkout -b workOnANewBranch
 
 1. Grab essential DOM elements:
 
-    *
+    * cityName
+
+    * natureFigure
+
+    * architectureFigure
+
+    * artFigure
+
+    * natureSelect
+
+    * architectureSelect
+
+    * artSelect
+
+    * nameForm
+
+    * sloganForm
+
+    * sloganSection
 
 2. addEventListener for:
 
-    *
+    * natureSelect
+
+    * architectureSelect
+
+    * artSelect
+
+    * nameForm
+
+    * sloganForm
 
 3. Write functions for:
 
