@@ -15,11 +15,69 @@
 
 <body>
     <header>
-
+        <button id="logout">SignOut</button>
+        <h1 id="city-name"><!-- City name --></h1>
     </header>    
-    <button id="logout">Logout</button>
     <main>
-        <h1>You are logged in!</h1>
+        <section id="figure-section">
+
+            <figure id="nature-figure">
+              <!--
+              <img src="" alt="">
+              -->
+              <figcaption id="architecture-figure">Nature</figcaption>
+            </figure>
+              <figure>
+              <!--
+              <img src="" alt="">
+              -->
+              <figcaption>Architecture</figcaption>
+            </figure>
+              <figure id="art-figure">
+              <!--
+              <img src="" alt="">
+              -->
+              <figcaption>Art</figcaption>
+            </figure>
+          
+        </section>
+
+        <section id="dropdown-section">
+            <select name="nature" id="nature-select">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+            </select>
+            <select name="architecture" id="architecture-select">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+            </select>
+            <select name="art" id="art-select">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+            </select>
+        </section>
+
+        <section>
+            <form id="name-form">
+              <label for="name">Name</label>
+              <input type="text" name="name" placeholder="city name" required>
+              <button type="submit" form="name-form">Name</button>
+            </form>
+            <form id="slogan-form">
+              <label for="slogan">Slogan</label>
+              <input type="text" name="slogan" placeholder="city slogan" required>
+              <button type="submit" form="slogan-form">Slogan</button>
+            </form>
+        </section>
+
+        <section id="slogan-section">
+            <!-- 
+              <span>City Slogan</span>
+            -->
+        </section>
     </main>
     <footer>
        
