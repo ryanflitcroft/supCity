@@ -120,6 +120,8 @@ export async function defaultCity() {
                     'Keep it Weird'
                 ]
             }
-        ]);
+        ])
+        .single();
+        
     return checkError(response);
 }
