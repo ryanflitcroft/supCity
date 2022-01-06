@@ -11,27 +11,14 @@ const nameForm = document.querySelector('#name-form');
 const sloganForm = document.querySelector('#slogan-form');
 const sloganSection = document.querySelector('#slogan-section');
 
-// console.log(
-//     cityName,
-//     natureFigure,
-//     architectureFigure,
-//     artFigure,
-//     natureSelect,
-//     architectureSelect,
-//     artSelect,
-//     nameForm,
-//     sloganForm,
-//     sloganSection
-// );
-
 checkAuth();
 
 const logoutButton = document.getElementById('logout');
 
 window.addEventListener('load', async() => {
-    const city = await getCity();
+    let city = await getCity();
     if (!city) {
-        await defaultCity();
+        city = await defaultCity();
     }
     displayCity(city);
     natureSelect.value = city.nature;
